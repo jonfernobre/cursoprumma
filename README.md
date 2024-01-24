@@ -1,2 +1,1 @@
-# cursoprumma
-Curso de capacitação 
+treinamento do prumma
