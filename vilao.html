@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="android-chrome-192x192.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            background-color: #fff;
+            color:#000;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #bfbfbf;
+        }
+    </style>
+    <title>Vilão</title>
+</head>
+<body>
+    <h1>Você escolheu ser o Vilão</h1>
+    <hr>
+    <h2>Vamos saber que tipo de Vilão você é, escolha uma opção:</h2>
+    <hr>
+    <br>
+    <label>
+        <input type="radio" name="opcao" value="O Flash Reverso" data-img="reverso.jpg"> Rápido
+    </label>
+    <label>
+        <input type="radio" name="opcao" value="Lex Luthor" data-img="luthor.jpg"> Forte
+    </label>
+    <label>
+        <input type="radio" name="opcao" value="O Coringa" data-img="coringa.jpg"> Misterioso
+    </label>
+    <br>
+    <button onclick="mostrarEscolha()">Mostrar Escolha</button>
+    <p id="resultado"></p>
+    <img id="imagemVilao" src="">
+    <br>
+    <button type="submit" onclick="enviarFormulario()">Enviar</button>
+
+    <script>
+        function mostrarEscolha() {
+            var opcoes = document.getElementsByName('opcao');
+            var imagemHeroi = document.getElementById('imagemVilao');
+
+            for (var i = 0; i < opcoes.length; i++) {
+                if (opcoes[i].checked) {
+                    document.getElementById('resultado').innerText = 'Você escolheu: ' + opcoes[i].value;
+                    imagemHeroi.src = opcoes[i].getAttribute('data-img');
+                    imagemHeroi.style.display = 'block';
+                    return;
+                }
+            }
+
+            document.getElementById('resultado').innerText = 'Por favor, escolha uma opção.';
+            imagemHeroi.src = '';
+            imagemHeroi.style.display = 'none';
+        }
+
+        function enviarFormulario() {
+            alert('Escolha enviada com sucesso!');
+        }
+    </script>
+</body>
+</html>
